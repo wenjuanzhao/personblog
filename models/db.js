@@ -1,6 +1,6 @@
 //封装的是数据库的连接
 var mongodb=require('mongodb'),
-    setting=require('../setting')   //得到数据库的相关配置信息
+    setting=require('../setting')  ; //得到数据库的相关配置信息
 var Db=mongodb.Db;
 var connection=mongodb.Connection;
 var Server=mongodb.Server;

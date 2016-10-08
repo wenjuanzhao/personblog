@@ -6,7 +6,9 @@
     "start": "node app.js"
   },
   "dependencies": {
+    "connect-flash": "*",
+    "ejs": "*",
     "express": "3.5.0",
-    "ejs": "*"
+    "nodemailer": "^2.6.4"
   }
 }

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="/javascripts/jquery-1.11.1.min.js"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+</head>
+<body class="widescreen">
+<link rel='stylesheet' href='/stylesheets/reg.css' />
+<div class="container" style="padding-bottom: 50px">
+    <h1 class="l_logo">注册XXX网站</h1>
+    <div class="xian"></div>
+    <div  class="l_kuang">
+        <form method="post" onsubmit="validateCode()">
+            <div class="l_user">
+                <label for="user" class="ding_label"> 用户名</label>
+               <input type="text" id="user" name="name" placeholder="请输入用户名">
+                <div class="tishu">
+                    <span id="ts_user">4-16位中文、英文、数字、下划线组成注册后不可以修改</span>
+                </div>
+            </div>
+            <div class="l_user">
+                <label for="password" class="ding_label">密 码</label>
+                <input type="password" id="password" name="password" placeholder="请输入密码"> <div class="tishu">
+                    <span id="ts_password">由6-16位字符组成</span>
+                </div>
+            </div>
+            <div class="l_user">
+                <label for="re_pass" class="ding_label"> 确认密码</label>
+               <input type="password" name="re_password" id="re_pass"placeholder="确认输入的密码"> <div class="tishu">
+                    <span  id="ts_repeat">确保两次输入的密码一致</span>
+                </div>
+            </div>
+            <div class="l_user">
+                <label for="re_pass" class="ding_label"> 电子邮件</label>
+                <input type="email" name="email" id="email" placeholder="请输入电子邮箱"> <div class="tishu">
+                    <span id="ts_email">填写有效的电子邮箱，以获得注册信息</span>
+                </div>
+            </div>
+            <div class="l_user">
+                <table border="0" cellspacing="5" cellpadding="5"  >
+                    <tr>
+                        <td>验证码：</td>
+                        <td>
+                            <input  type="text"   id="inputCode" />
+                            <div class="tishu">
+                                <span  id="ts_yzm" style="margin-left:10px">请输入右边的验证码</span>
+                            </div>
+                        </td>
+                        <td></td><td> <div class="code" id="checkCode" onclick="createCode()" ></div></td>
+                        <td><span  onclick="createCode()" style="cursor: pointer">看不清换一张</span></td>
+                    </tr>
+                    <tr><td colspan="4">
+                            <input type="submit" value="注册" class="l_button" onclick="validateCode()" id="Button1">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="/javascripts/regtool.js"></script>
+<script>
+    $(function () {
+        createCode();
+        var password=$("#password");
+        var re_pass=$("#re_pass");
+        var ts_repeat=$("#ts_repeat");
+        var ts_password=$("#ts_password");
+        var Button1=$("#Button1");
+        var inputCode=$("#inputCode");
+        var validate=$("#validate");
+        //在用书输入完用户名以后相数据库提交这个用户名以检测是否存在
+        var user=$("#user");
+        var ts_user=$("#ts_user");
+        user.blur(function () {
+              $.post("/checkuser",{name:user.val()},function (data) {
+                       var con=(data.user_state==1)?true:false;
+                       valideCSS(ts_user,con,"用户名已经存在","用户名合法");
+              })
+        })
+        inputCode.blur(function () {
+            validateCode();
+        })
+        password.blur(function () {
+             var con=password.val().length<6?true:false;
+            valideCSS(ts_password,con,"建议密码的长度大于6","密码长度复合要求，继续完成注册");
+        })
+        re_pass.blur(function () {
+            var con=password.val()!=re_pass.val()?true:false;
+            valideCSS(ts_repeat,con,"两次输入的密码不一致","两次输入的密码一致，继续注册");
+        })
+
+    })
+</script>
+<%include footer.ejs%>

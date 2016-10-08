@@ -2,18 +2,89 @@
 <html>
 <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/bootstrap.css' />
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <script src="/javascripts/jquery-1.11.1.min.js"></script>
-    <script src="/javascripts/bootstrap.js"></script>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 </head>
-<body>
+<body class="widescreen">
 <div class="container">
-     <ul class="nav nav-pills">
-         <li class="active"><a href="#">主页</a></li>
-         <li ><a href="#">注册</a></li>
-         <li ><a href="#">登录</a></li>
-         <li ><a href="#">主页</a></li>
-     </ul>
+    <!--头部-->
+   <div class="header">
+       <div class="logo">
+           <h1>
+               <a href="#" title="返回首页">iPc.me</a>
+           </h1>
+       </div>
+   </div>
+    <!--头部-->
+   <!-- 导航-->
+    <%if(user){%>
+    <span>欢迎<%= user.name%></span>
+    <%}%>
+    <div id="nav">
+        <ul class="nav-ul">
+            <li><a href="/">首页</a></li>
+            <li class="dropdownlink">
+                <a href="/">探索发现
+                <span></span>
+                </a>
+                <div class="submenu tab_box" id="nav_explor" style="opacity: 1;display: block">
+                    <ul class="tab_menu">
+                        <li class="current">文章分类</li>
+                        <li>热门标签</li>
+                    </ul>
+                    <div class="tab_content">
+
+                    </div>
+                </div>
+            </li>
+            <li><a href="/">视频
+                <span></span></a></li>
+            <li><a href="/">热门栏目
+                <span></span></a></li>
+            <li><a href="/">Office</a></li>
+            <li><a href="/">留言</a></li>
+            <li><a href="/">订阅与关注
+                <span></span>
+                </a>
+            </li>
+            <%if(user){%>
+            <li><a href="/post">发表文章
+                </a>
+            </li>
+            <li>
+                <a href="/logout">退出
+                </a>
+            </li>
+            <%}else{%>
+            <li><a href="/login">登录
+                </a>
+            </li>
+            <li>
+                <a href="/register">注册
+                </a>
+            </li>
+            <%}%>
+
+        </ul>
+        <div class="nav-search">
+            <div id="search-box">
+                <input type="hidden" name="s" value="">
+                <input  type="text" id="gs-input" size="30"name="q" value="输入关键字搜索" onfocus="hiddenhint()" onblur="showhint()">
+                <input type="submit" value="搜索" id="gs-search-buttpn">
+            </div>
+        </div>
+        <a id="nav-robot" title="随机取一片文章">nbn</a>
+    </div>
+    <!-- 导航-->
+    <!--登录注册-->
+    <div id="crumb">
+        <!--实现面包屑导航-->
+        <div id="crumb_l">
+            <span>你的位置:</span>
+            <a href="/">首页</a>
+        </div>
+    </div>
+    <!--登录注册-->
+
 </div>

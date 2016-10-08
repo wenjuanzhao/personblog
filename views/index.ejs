@@ -1,4 +1,17 @@
 
 <%include header.ejs%>
-这里是主页
+<link rel='stylesheet' href='/stylesheets/show_post.css' />
+<div class="container" style="padding-bottom: 50px">
+    <h3 class="l_logo">博文</h3>
+    <div class="xian"></div>
+    <div  class="l_kuang">
+    <% posts.forEach(function(post,index){%>
+
+        <div class="show_title">标题<%= post.title%></div>
+        <div class="show_post">文章<%= post.post%></div>
+        <div class="show_xian" style="margin: "></div>
+    <%})%>
+    </div>
+
+</div>
 <%include footer.ejs%>

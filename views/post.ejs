@@ -1,0 +1,117 @@
+<%include header.ejs%>
+<link rel='stylesheet' href='/stylesheets/post.css' />
+<div class="container" style="padding-bottom: 50px">
+    <h3 class="l_logo">发布文章</h3>
+    <div class="xian"></div>
+    <div  class="l_kuang">
+        <form method="post">
+            <div class="post_title post">
+                <label for="post_title" style="float: left;font-weight: normal;">标题：</label>
+                <input type="text" id="post_title" name="title">
+                <div id="timeTips" ></div>
+            </div>
+            <div class="clear"></div>
+            <div class="post_body">
+                <textarea class="post_shu" name="post" ></textarea>
+            </div>
+            <div class="post_category">
+                <label for="post_category" style="font-weight: normal;font-size: 14px;">分类：</label>
+                <select id="post_category" >
+                    <option value="life">生活</option>
+                    <option value="work">工作</option>
+                </select>
+            </div>
+            <div class="post_tag">
+                <span class="tag_name">标签：</span>
+                <span class="tag_shi" id="tag_shi"><input type="text" id="tag_input"></span>
+            </div>
+            <div id="tag">
+               <div class="tag_tishi">选择下面的标签:</div>
+                <div class="tags">
+                    <span >推荐标签：</span>
+                    <span class="a_tag">育儿</span>
+                    <span class="a_tag">娱乐</span>
+                    <span class="a_tag">星座</span>
+                    <span class="a_tag">文化</span>
+                    <span class="a_tag">体育</span>
+                    <span class="a_tag">时尚</span>
+                    <span class="a_tag">情感</span>
+                    <span class="a_tag">汽车</span>
+                    <span class="a_tag">美食</span>
+                    <span class="a_tag">旅游</span>
+                    <span class="a_tag">军事</span>
+                    <span style="margin-left: 100px;" class="a_tag">教育</span>
+                    <span class="a_tag">健康</span>
+                    <span class="a_tag">股票</span>
+                    <span class="a_tag">房产</span>
+                    <span class="a_tag">财经</span>
+                    <span class="a_tag">历史</span>
+                    <span class="a_tag">收藏</span>
+                    <span class="a_tag">时评</span>
+                    <span class="a_tag">图片</span>
+                    <span class="a_tag"> IT</span>
+
+                </div>
+                <span class="close_button" id="close_button">x</span>
+            </div>
+            <div class="post_fabu">
+                <input type="submit" value="发布博文">
+            </div>
+        </form>
+    </div>
+</div>
+<script src="/javascripts/regtool.js"></script>
+<script>
+    $(function () {
+        var timeTips=$("#timeTips");
+        /*时间里边显示时间*/
+        var date=new Date();
+         timeTips.html("时间："+"  "+date.getFullYear()+"-"+parseInt(parseInt(date.getMonth())+1)+"-"+date.getDate()+" "+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds())
+       /* 时间里边显示时间*/
+       /* 推荐标签里边的关闭按钮*/
+        var close_button=$("#close_button");
+        var tag_input=$("#tag_input");
+        var tag=$("#tag");
+        var tag_shi=$("#tag_shi");
+        tag_shi.click(function () {
+            tag_input.focus();
+            tag.css({display:"block"});
+        })
+        close_button.click(function () {
+             tag.css({display:"none"});
+        })
+        /* 推荐标签里边的关闭按钮*/
+    /*    每一个标签的点击的效果*/
+        var a_tag=$(".a_tag");
+        var shang;
+        var selected_tag=[];
+        a_tag.click(function () {
+            /*不能重复添加两个相同的标签*/
+            //得到当前的点击的index
+            var value=$(this).html();
+            if(selected_tag.indexOf(value)==-1){
+                if(shang==undefined){
+                    tag_shi.prepend("<div class='a_tag_close'style='float: left;cursor: pointer;' onclick='$(this).css(\"display\",\"none\")'><span  class='tag_selected'style='margin-left:5px;background: #fff;display:inline-block;border:1px solid #ddd;height: 24px;line-height: 24px;padding: 0 5px;border-right: none' >"+value+"</span>"+"<span style='background: #fff;display:inline-block;border:1px solid #ddd;border-left:none;height: 20px;line-height: 20px;padding-right: 5px;' class='a_tag_close'>x</span></div>");
+
+                }
+               /* $(this).find(\".tag_selected\").html()*/
+                else{
+                    tag_input.before("<div class='a_tag_close' style='float: left;cursor: pointer;' onclick='$(this).css(\"display\",\"none\");'><span  class='tag_selected' style='margin-left:5px;background: #fff;display:inline-block;border:1px solid #ddd;height: 24px;line-height: 24px;padding: 0 5px;border-right: none' >"+value+"</span>"+"<span style='background: #fff;display:inline-block;border:1px solid #ddd;border-left:none;height: 20px;line-height: 20px;padding-right: 5px;'  >x</span></div>")
+                }
+                selected_tag.push(value);
+            }
+            //记录的是上次的点击的
+            shang=$(this).index()
+
+        })
+        /*    每一个标签的点击的效果*/
+     //点击已经选住的关闭按钮的效果
+        var a_tag_close=$(".a_tag_close");
+
+
+
+     //点击已经选住的关闭按钮的效果
+
+    })
+</script>
+<%include footer.ejs%>

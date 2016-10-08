@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="/javascripts/jquery-1.11.1.min.js"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+</head>
+<body class="widescreen">
+<link rel='stylesheet' href='/stylesheets/login.css' />
+<div class="container" style="padding-bottom: 50px">
+      <h1 class="l_logo">登录XXX网站</h1>
+      <div class="xian"></div>
+    <div  class="l_kuang">
+        <form method="post">
+            <div class="l_user">
+            用户名：<input type="text" name="name" placeholder="请输入用户名">
+                <%if(error==1){%>
+                <div class="tishu">
+                <span class="reg_error" style="margin-left: 90px">用户名不存在</span></div>
+                <%}%>
+            </div>
+            <div class="l_user">
+            密  &nbsp;&nbsp;码：<input type="password" name="password" placeholder="请输入密码"><br/>
+                <%if(error==2){%>
+                <div class="tishu">
+                    <span class="reg_error" style="margin-left: 90px">输入的密码有误</span></div>
+                <%}%>
+            </div>
+            <div class="l_small">
+                <input type="checkbox" id="remeber">
+                <label for="remeber" class="remeber">记住我</label>
+                <a href="/">找回密码</a>
+            </div>
+            <input type="submit"   value="登录" class="l_button">
+
+        </form>
+    </div>
+    <div class="l_kuang_r">
+        <div>
+            您也可以使用以下方式登录
+        </div>
+        <div class="l_san">
+           <a class="l_zhuan_w"  href="#"></a>
+           <a class="l_zhuan_q" href="#"></a>
+           <a class="l_zhuan_x" href="#"></a>
+        </div>
+        <div class="l_reg">
+            <a href="register">还没有账号，立即注册</a>
+        </div>
+    </div>
+</div>
+
+<%include footer.ejs%>

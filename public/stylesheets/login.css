@@ -1,0 +1,61 @@
+.l_logo{
+    color: #2b542c;
+    padding: 20px 0;
+}
+.l_kuang{
+    padding: 20px;border: 1px solid #ddd;width: 50%;float: left;
+    background: -webkit-linear-gradient(#fff, #eee,#fff); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#fff, #eee,#fff); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#fff, #eee,#fff); /* Firefox 3.6 - 15 */
+    background: linear-gradient(#fff, #eee,#fff); /* 标准的语法 */
+    margin-top: 30px;font-size: 20px;font-weight: bold;
+}
+.l_kuang .l_user{
+    padding:20px ;
+}
+.l_kuang .l_user input{
+    margin-left:10px; height: 20px;padding: 5px;width: 250px;
+}
+.l_kuang .l_button{
+   color: #fff;margin-left: 120px;background: #4cae4c;padding: 10px 30px;font-size: 16px;font-weight: bold;border:none;border-radius: 3px;margin-top: 20px;
+}
+.l_small{
+    margin-left: 100px; font-size: 14px;font-weight: normal;
+}
+.l_small a{
+    color: #4cae4c;display: inline-block;margin-left: 100px;text-decoration: underline;
+}
+.l_reg a:hover,.l_small a:hover{
+    color: #d43f3a;
+}
+.l_kuang_r{
+    width: 40%;
+    float: right;margin-top: 30px;
+}
+.l_kuang_r .l_san{
+    padding: 20px;margin-top: 40px;margin-bottom: 20px;
+}
+.l_reg a{
+    color: #4cae4c;font-size:20px;text-decoration: underline;
+}
+.l_kuang_r a{
+     display:inline-block;margin-left: 20px;
+}
+.l_kuang_r .l_zhuan_w{
+    width: 60px;height: 60px;background: url("../images/loginWin_third.png") 0 0 no-repeat;
+}
+.l_kuang_r .l_zhuan_q{
+    width: 60px;height: 60px;background: url("../images/loginWin_third.png") 0 -60px no-repeat;
+}
+.l_kuang_r .l_zhuan_x{
+    width: 60px;height: 60px;background: url("../images/loginWin_third.png") 0 -120px no-repeat;;
+}
+.tishu .reg_error{
+    color: red;font-weight: bold;
+}
+.tishu .reg_success{
+    color: #4cae4c;
+}
+.tishu span{
+    font-size: 14px;color: #9d9d9d;font-weight: normal;margin-left: 120px;
+}
