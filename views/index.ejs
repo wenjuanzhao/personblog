@@ -2,16 +2,36 @@
 <%include header.ejs%>
 <link rel='stylesheet' href='/stylesheets/show_post.css' />
 <div class="container" style="padding-bottom: 50px">
-    <h3 class="l_logo">博文</h3>
+    <h1 class="l_logo">博文</h1>
     <div class="xian"></div>
     <div  class="l_kuang">
-    <% posts.forEach(function(post,index){%>
+        <% posts.forEach(function(post,index){%>
 
-        <div class="show_title">标题<%= post.title%></div>
-        <div class="show_post">文章<%= post.post%></div>
-        <div class="show_xian" style="margin: "></div>
-    <%})%>
+        <h2 class="show_title">
+            <a href="/u/<%= post.name%>/<%= post.time.day%>/<%= post.title%>" ><%= post.title%></a>
+            <a href="/u/<%= post.name%>" style="display:inline-block;float: right"><img src="<%= post.head%>" style="width: 50px;"></a></h2>
+        <div class="show_info">
+            <span class="show_author">作者：<a href="/u/<%= post.name%>"><%= post.name%></a></span>
+            <span class="show_date" style="margin-left: 50px;">日期：<span style="color: #000"><%= post.time.minute%></span></span>
+            <%post.tags.forEach(function (tag,index) { %>
+            <%if(tag){%>
+            <span class="tag"><a href="/tag/<%= tag%>" style="color: white"><%= tag%></a></span>
+            <%}%>
+            <%})%>
+        </div>
+        <div class="show_post"><%- post.post%></div>
+        <div class="tongji">
+            <span  >阅读：<span  class="tongji_shu"><%= post.pv%></span></span>
+            <span  >评论：<span class="tongji_shu"><%= post.comments.length%></span></span>
+        </div>
+        <div class="show_xian"></div>
+        <%})%>
+        <%include page.ejs%>
     </div>
 
 </div>
+<script>
+    $(".show_post image").attr("width","100%");
+</script>
+
 <%include footer.ejs%>

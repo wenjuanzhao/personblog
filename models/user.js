@@ -1,4 +1,5 @@
 var mongo=require('./db');
+var crypto=require('crypto');
 function User(user) {
     this.name=user.name;
     this.password=user.password;
@@ -7,11 +8,17 @@ function User(user) {
 module.exports=User;
 //将用户的信息存储到数据库中
 User.prototype.save=function (callback) {
+    var md5 = crypto.createHash('md5'),
+        email_MD5 = md5.update(this.email.toLowerCase()).digest('hex'),
+        //这必须是正确的网址，否则的话，就得不到这个头像
+        head = "http://cn.gravatar.com/avatar" + email_MD5 + "?s=48";
     var user={
         name:this.name,
         password:this.password,
-        email:this.email
+        email:this.email,
+        head:head
     }
+    console.log(head);
     mongo.open(function (error,db) {
         //连接数据库发生错误
         if(error){

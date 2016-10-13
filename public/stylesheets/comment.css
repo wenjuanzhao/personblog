@@ -1,0 +1,42 @@
+.l_logo{
+     color: #2b542c;
+     padding: 20px 0;
+ }
+.show_xian{
+    border-top: 1px dashed #ddd; margin: 20px 0;
+}
+.l_kuang{
+    padding: 20px;border: 1px solid #ddd;
+    background: -webkit-linear-gradient(#fff, #eee,#fff); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#fff, #eee,#fff); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#fff, #eee,#fff); /* Firefox 3.6 - 15 */
+    background: linear-gradient(#fff, #eee,#fff); /* 标准的语法 */
+    margin-top: 30px;font-size: 20px;font-weight: bold;
+    overflow: hidden;
+}
+.post_body{
+    margin-top: 10px;
+}
+.post_shu{
+    width: 96%;height: 50px;resize: none;padding: 2%;font-size: 16px;outline:none;border-radius:5px;
+    -webkit-border-radius: 5px;
+}
+.comment_info{
+    margin: 10px 0;font-weight: normal;font-size: 14px;
+}
+.comment_info input{
+    margin-left: 20px;
+}
+.comment_info p{
+    margin: 10px 0;
+}
+.post_fabu{
+    margin-top: 20px;
+}
+.post_fabu input{
+    width: 150px;background: #4cae4c;color: #fff;font-size: 16px;padding: 10px;border: none;
+    border-radius: 10px;margin-left: 400px;cursor: pointer;
+}
+#comment_title{
+    background: #4cae4c; line-height:46px ;
+}

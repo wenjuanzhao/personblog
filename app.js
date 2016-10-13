@@ -8,14 +8,15 @@ var routes = require('./routes');
 var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
+var fs=require('fs');
 //得到的是配置的信息
 var setting=require('./setting.js');
 var flash=require('connect-flash');
 //得到session的中间件
 var session=require('express-session');
 var MongoStore=require('connect-mongo')(session);
-
-
+var accessLog=fs.createWriteStream('access.log',{flags:'a'});
+var errorLog=fs.createWriteStream('error.log',{flags:'a'});
 var app = express();
 //使用session的中间件  可以实现将会话信息存储到mongodb中
 app.use(session({
@@ -34,6 +35,11 @@ app.use(flash());
 app.set('view engine', 'ejs');
 app.use(express.favicon());
 app.use(express.logger('dev'));
+app.use(function (error,req,res,next) {
+    var meta='['+new Date()+']'+req.url+'\n';
+     errorLog.write(meta+error.stack+'\n');
+    next();
+})
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());

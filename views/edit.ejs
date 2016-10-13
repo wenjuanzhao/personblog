@@ -1,0 +1,38 @@
+
+<%include footer.ejs%><%include header.ejs%>
+<link rel='stylesheet' href='/stylesheets/post.css' />
+<div class="container" style="padding-bottom: 50px">
+    <h3 class="l_logo">发布文章</h3>
+    <div class="xian"></div>
+    <div  class="l_kuang">
+        <form method="post">
+            <div class="post_title post">
+                <label for="post_title" style="float: left;font-weight: normal;">标题：</label>
+                <input type="text" id="post_title" name="title" disabled value="<%= post.title%>">
+                <div id="timeTips" ></div>
+            </div>
+            <div class="clear"></div>
+
+            <div class="post_body">
+                <textarea class="post_shu" name="post" ><%= post.post%></textarea>
+            </div>
+            <div class="tags">
+                <input type="text" id="tag1" value="<%= post.tags[0]%>" disabled="disabled">
+                <input type="text" id="tag2" value="<%= post.tags[1]%>" disabled="disabled">
+                <input type="text" id="tag2" value="<%= post.tags[2]%>" disabled="disabled">
+            </div>
+            <div class="post_fabu">
+                <input type="submit" value="保存修改">
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    $(function () {
+        var timeTips=$("#timeTips");
+        /*时间里边显示时间*/
+        var date=new Date();
+        timeTips.html("时间："+"  "+date.getFullYear()+"-"+parseInt(parseInt(date.getMonth())+1)+"-"+date.getDate()+" "+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds())
+    })
+</script>
+<%include footer.ejs%>

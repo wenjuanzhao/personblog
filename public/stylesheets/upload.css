@@ -1,0 +1,47 @@
+.file {
+    position: relative;
+    display: inline-block;
+    background: #D0EEFF;
+    border: 1px solid #99D3F5;
+    border-radius: 4px;
+    padding: 4px 12px;
+    overflow: hidden;
+    color: #1E88C7;
+    text-decoration: none;
+    text-indent: 0;
+    line-height: 18px;
+    font-size: 14px;
+    font-weight: normal;
+}
+.file input {
+    position: absolute;
+    right: 0;
+    top: 0;
+    opacity: 0;
+}
+.file:hover {
+    background: #AADFFD;
+    border-color: #78C3F3;
+    color: #004974;
+    text-decoration: none;
+}
+.l_logo{
+    color: #2b542c;
+    padding: 5px 0;
+}
+.l_kuang{
+    padding: 20px;border: 1px solid #ddd;
+    background: -webkit-linear-gradient(#fff, #eee,#fff); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#fff, #eee,#fff); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#fff, #eee,#fff); /* Firefox 3.6 - 15 */
+    background: linear-gradient(#fff, #eee,#fff); /* 标准的语法 */
+    margin-top: 30px;font-size: 20px;font-weight: bold;
+    overflow: hidden;
+}
+.post_fabu{
+    margin-top: 20px;
+}
+.post_fabu input{
+    width: 150px;background: #4cae4c;color: #fff;font-size: 16px;padding: 10px;border: none;
+    border-radius: 10px;margin-left: 400px;cursor: pointer;
+}

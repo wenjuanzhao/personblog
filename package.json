@@ -9,6 +9,8 @@
     "connect-flash": "*",
     "ejs": "*",
     "express": "3.5.0",
-    "nodemailer": "^2.6.4"
+    "multer": "^1.2.0",
+    "nodemailer": "^2.6.4",
+    "markdown":"0.5.0"
   }
 }

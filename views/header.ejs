@@ -43,9 +43,8 @@
             <li><a href="/">热门栏目
                 <span></span></a></li>
             <li><a href="/">Office</a></li>
-            <li><a href="/">留言</a></li>
-            <li><a href="/">订阅与关注
-                <span></span>
+            <li><a href="/archive">存档 </a></li>
+            <li><a href="/upload">上传文件
                 </a>
             </li>
             <%if(user){%>
@@ -69,9 +68,10 @@
         </ul>
         <div class="nav-search">
             <div id="search-box">
-                <input type="hidden" name="s" value="">
-                <input  type="text" id="gs-input" size="30"name="q" value="输入关键字搜索" onfocus="hiddenhint()" onblur="showhint()">
+                <form action="/search" method="post">
+                <input  type="text" id="gs-input" size="30"name="key" value="输入关键字搜索" onfocus="hiddenhint()" onblur="showhint()">
                 <input type="submit" value="搜索" id="gs-search-buttpn">
+                </form>
             </div>
         </div>
         <a id="nav-robot" title="随机取一片文章">nbn</a>

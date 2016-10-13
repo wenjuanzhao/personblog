@@ -1,0 +1,63 @@
+<link rel='stylesheet' href='/stylesheets/comment.css' />
+
+<div class="container">
+    <div class="l_kuang" >
+        <span class="l_logo">评论</span>
+        <div class="show_xian"></div>
+        <%post.comments.forEach(function(comment,index){%>
+        <p style="font-weight: normal;font-size: 14px">
+            <a href="<%= comment.webite%>"><%=comment.name%></a>
+            <a href="/u/<%= post.name%>" style="display:inline-block;float: right"><img src="<%= post.head%>" style="width: 50px;"></a>
+            <span  style="margin-left: 10px;"> 回复于<%=  comment.time.minute%></span>
+        </p>
+        <div style="margin-top: 10px;"><%- comment.content%></div>
+        <div class="show_xian"></div>
+        <%})%>
+    </div>
+</div>
+<div class="container">
+<div class="l_kuang">
+    <span class="l_logo">添加评论</span>
+    <div class="show_xian"></div>
+    <form method="post" action="/u/<%= post.name%>/<%= post.time.day%>/<%= post.title%>">
+    <div class="post_body">
+        <textarea class="post_shu" name="content" ></textarea>
+    </div>
+        <div class="comment_info">
+    <%if(user){%>
+      <p>
+          <label for="name">姓名</label>
+          <input type="text" id="name" name="name" value="<%= user.name%>">
+      </p>
+            <p>
+                <label for="email">邮箱</label>
+                <input type="text" id="email" name="email" value="<%= user.email%>">
+            </p>
+            <p>
+                <label for="website">网址</label>
+                <input type="text" id="website" name="website" value="/u/<%= user.name%>">
+            </p>
+            <p class="post_fabu">
+                <input type="submit" value="添加评论">
+            </p>
+    <%}else{%>
+            <p>
+                <label for="name">姓名</label>
+                <input type="text" id="name" name="name" value="">
+            </p>
+            <p>
+                <label for="email">邮箱</label>
+                <input type="text" id="email" name="email" value="">
+            </p>
+            <p>
+                <label for="website">网址</label>
+                <input type="text" id="website" name="website" value="http://">
+            </p>
+            <p class="post_fabu">
+                <input type="submit" value="留言">
+            </p>
+            <%}%>
+        </div>
+    </form>
+</div>
+</div>

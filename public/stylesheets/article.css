@@ -1,0 +1,36 @@
+.l_kuang{
+    padding: 20px;border: 1px solid #ddd;
+    background: -webkit-linear-gradient(#fff, #eee,#fff); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#fff, #eee,#fff); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#fff, #eee,#fff); /* Firefox 3.6 - 15 */
+    background: linear-gradient(#fff, #eee,#fff); /* 标准的语法 */
+    margin-top: 30px;font-size: 20px;font-weight: bold;
+    overflow: hidden;
+}
+.show_xian{
+    border-top: 1px dashed #ddd; margin: 20px 0;
+}
+.show_title{
+    color: #4cae4c;font-size: 20px;margin-bottom: 10px;
+}
+.show_post{
+    color: #000;font-weight:normal ;font-size: 16px;
+}
+.show_info{
+    margin: 10px 0;font-weight: normal;font-size: 14px;color: #4cae4c;
+}
+.show_post image{
+    width:100%;
+}
+.editor{
+    background: #9d9d9d;padding: 5px;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;margin-left: 10px;cursor: pointer;
+}
+.editor:hover{
+    background: #4cae4c;
+}
+.editor a{
+    color: #fff;
+}

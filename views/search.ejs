@@ -1,0 +1,22 @@
+<%include header.ejs%>
+<link rel='stylesheet' href='/stylesheets/archive.css' />
+<div class="container" style="padding-bottom: 50px">
+    <h1 class="l_logo" style="margin: 20px 0"><%= title%></h1>
+    <div class="xian"></div>
+    <div  class="l_kuang">
+        <%var lastyaer=0;%>
+        <% posts.forEach(function (post,index) { %>
+        <%if(lastyaer!=post.time.year){%>
+        <h3 style="margin: 10px 0"><%= post.time.year%></h3>
+        <%lastyaer=post.time.year}%>
+        <div class="show_info">
+            <a href="/u/<%= post.name%>/<%= post.time.day%>/<%= post.title%>" style="margin-left: 10px"><%= post.title%></a>
+            <a href="/u/<%= post.name%>" style="margin-left: 10px"><%= post.name%></a>
+            <span style="display: inline-block;margin: 10px;color:#6ba82f"><%= post.time.day%></span>
+        </div>
+        <div class="show_xian"></div>
+        <%})%>
+    </div>
+
+</div>
+<%include footer.ejs%>

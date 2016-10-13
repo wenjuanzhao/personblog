@@ -1,0 +1,33 @@
+<%include header.ejs%>
+<link rel='stylesheet' href='/stylesheets/article.css' />
+<div class="container" style="padding-bottom: 50px">
+    <h1 class="l_logo" style="margin: 20px 0"><%= title%></h1>
+    <div class="xian"></div>
+    <div  class="l_kuang">
+        <div class="show_info">
+            <span class="show_author">作者：<a href="/u/<%= post.name%>"><%= post.name%></a></span>
+            <span class="show_date" style="margin-left: 50px;">日期：<span style="color: #000"><%= post.time.minute%></span></span>
+            <%post.tags.forEach(function (tag,index) { %>
+            <%if(tag){%>
+            <span class="tag"><a href="/tag/<%= tag%>" style="color: white"><%= tag%></a></span>
+            <%}%>
+            <%})%>
+       <!--     只有作者登录进来才可以看这两个按钮-->
+            <%if(user&&(user.name==post.name)){%>
+            <span class="editor"><a href="/edit/<%= post.name%>/<%= post.time.day%>/<%= post.title%>">编辑</a></span>
+            <span class="editor"><a href="/delete/<%= post.name%>/<%= post.time.day%>/<%= post.title%>">删除</a></span>
+            <%}%>
+        </div>
+        <div class="show_post"><%- post.post%></div>
+        <div class="tongji">
+            <span  >阅读：<span  class="tongji_shu"><%= post.pv%></span></span>
+            <span  >评论：<span class="tongji_shu"><%= post.comments.length%></span></span>
+        </div>
+        <div class="show_xian"></div>
+
+    </div>
+
+</div>
+
+<%include comment.ejs%>
+<%include footer.ejs%>

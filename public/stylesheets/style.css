@@ -4,7 +4,7 @@ body {
   background: url("../images/bg.png");
  position: relative;
 }
-h1,h2,h3,h4,h5,h6,input,a,ul,li,span{
+h1,h2,h3,h4,h5,h6,input,a,ul,li,span,p{
   padding: 0;margin: 0;
 }
 ul li {
@@ -63,7 +63,7 @@ a {
   display: block;width: 278px;border: 1px solid #bbb;height: 26px;line-height: 26px;padding: 0 5px ;overflow: hidden;color: #ccc;
 }
 #search-box #gs-search-buttpn{
-  cursor: pointer;outline: 0;width: 20px;height: 20px;background: #fff url("../images/sprite.png") -250px -63px;text-indent: -9999px;position: absolute;right:9px;top:9px;border: none;
+  cursor: pointer;outline: 0;width: 20px;height: 20px;background: red url("../images/sprite.png") -250px -63px;text-indent: -9999px;position: absolute;right:9px;top:9px;border: none;
 }
 #nav #nav-robot{
      display: block;position: absolute;padding: 0;margin: 0;top:0;right:314px;width:36px;background: #33363b url("../images/sprite.png") -173px -155px;text-indent: -999px;cursor: pointer;
@@ -109,4 +109,16 @@ background: #33363b url("../images/sprite.png") -173px -190px;text-indent: -999p
 }
 .xian{
   width: 100%;height: 2px;margin: 0px; padding: 0px;background: #ddd;overflow: hidden;
+}
+.tag{
+  display: inline-block;padding: 5px;background: #4cae4c;color: white;margin-left: 10px;border-radius: 4px;cursor: pointer;
+}
+.tongji{
+  margin: 10px; font-size: 14px;font-weight: normal;
+}
+.tongji span{
+  margin-left: 30px;
+}
+.tongji .tongji_shu{
+  margin-left: 5px;
 }

@@ -4,28 +4,26 @@
     <h3 class="l_logo">发布文章</h3>
     <div class="xian"></div>
     <div  class="l_kuang">
-        <form method="post">
+        <form method="post" id="post">
             <div class="post_title post">
                 <label for="post_title" style="float: left;font-weight: normal;">标题：</label>
                 <input type="text" id="post_title" name="title">
                 <div id="timeTips" ></div>
             </div>
             <div class="clear"></div>
+
             <div class="post_body">
                 <textarea class="post_shu" name="post" ></textarea>
             </div>
-            <div class="post_category">
-                <label for="post_category" style="font-weight: normal;font-size: 14px;">分类：</label>
-                <select id="post_category" >
-                    <option value="life">生活</option>
-                    <option value="work">工作</option>
-                </select>
-            </div>
             <div class="post_tag">
                 <span class="tag_name">标签：</span>
-                <span class="tag_shi" id="tag_shi"><input type="text" id="tag_input"></span>
+                <span class="tag_shi" id="tag_shi">
+                    <input type="text" id="tag_input1" name="tag1">
+                    <input type="text" id="tag_input2" name="tag2">
+                    <input type="text"  id="tag_input3" name="tag3">
+                </span>
             </div>
-            <div id="tag">
+          <!--  <div id="tag">
                <div class="tag_tishi">选择下面的标签:</div>
                 <div class="tags">
                     <span >推荐标签：</span>
@@ -53,9 +51,9 @@
 
                 </div>
                 <span class="close_button" id="close_button">x</span>
-            </div>
+            </div>-->
             <div class="post_fabu">
-                <input type="submit" value="发布博文">
+                <input type="submit" value="发布博文" id="fabu">
             </div>
         </form>
     </div>
@@ -77,16 +75,16 @@
             tag_input.focus();
             tag.css({display:"block"});
         })
-        close_button.click(function () {
+   /*     close_button.click(function () {
              tag.css({display:"none"});
         })
-        /* 推荐标签里边的关闭按钮*/
-    /*    每一个标签的点击的效果*/
+        /!* 推荐标签里边的关闭按钮*!/
+    /!*    每一个标签的点击的效果*!/
         var a_tag=$(".a_tag");
         var shang;
         var selected_tag=[];
         a_tag.click(function () {
-            /*不能重复添加两个相同的标签*/
+            /!*不能重复添加两个相同的标签*!/
             //得到当前的点击的index
             var value=$(this).html();
             if(selected_tag.indexOf(value)==-1){
@@ -94,7 +92,7 @@
                     tag_shi.prepend("<div class='a_tag_close'style='float: left;cursor: pointer;' onclick='$(this).css(\"display\",\"none\")'><span  class='tag_selected'style='margin-left:5px;background: #fff;display:inline-block;border:1px solid #ddd;height: 24px;line-height: 24px;padding: 0 5px;border-right: none' >"+value+"</span>"+"<span style='background: #fff;display:inline-block;border:1px solid #ddd;border-left:none;height: 20px;line-height: 20px;padding-right: 5px;' class='a_tag_close'>x</span></div>");
 
                 }
-               /* $(this).find(\".tag_selected\").html()*/
+               /!* $(this).find(\".tag_selected\").html()*!/
                 else{
                     tag_input.before("<div class='a_tag_close' style='float: left;cursor: pointer;' onclick='$(this).css(\"display\",\"none\");'><span  class='tag_selected' style='margin-left:5px;background: #fff;display:inline-block;border:1px solid #ddd;height: 24px;line-height: 24px;padding: 0 5px;border-right: none' >"+value+"</span>"+"<span style='background: #fff;display:inline-block;border:1px solid #ddd;border-left:none;height: 20px;line-height: 20px;padding-right: 5px;'  >x</span></div>")
                 }
@@ -104,14 +102,13 @@
             shang=$(this).index()
 
         })
-        /*    每一个标签的点击的效果*/
+        /!*    每一个标签的点击的效果*!/
      //点击已经选住的关闭按钮的效果
         var a_tag_close=$(".a_tag_close");
-
-
-
      //点击已经选住的关闭按钮的效果
-
+     //点击提交的时候，把文章的标题也传过去
+        var fabu=$("#fabu");
+        var post=$("#post");*/
     })
 </script>
 <%include footer.ejs%>

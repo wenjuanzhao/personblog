@@ -1,0 +1,21 @@
+<%include header.ejs%>
+<link rel='stylesheet' href='/stylesheets/upload.css' />
+<div class="container" style="padding-bottom: 50px">
+    <h3 class="l_logo">发布文章</h3>
+    <div class="xian"></div>
+    <div  class="l_kuang">
+        <%if(success){%>
+        <span><%= success%></span>
+        <%}%>
+        <form method="post" enctype="multipart/form-data">
+            <a href="javascript:;" class="file">选择文件
+                <input type="file" name="field" id="" multiple>
+            </a>
+            <div class="post_fabu">
+                <input type="submit" value="提交文件">
+            </div>
+        </form>
+    </div>
+</div>
+
+<%include footer.ejs%>

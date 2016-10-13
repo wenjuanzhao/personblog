@@ -50,8 +50,9 @@ font-size: 14px;font-weight: normal;height: 26px;
 .post_tag .tag_shi{
     border: 1px solid #ccc;width: 75%;padding-left: 5px;
 }
-#tag_input{
-    border:none;height:18px;padding-top: 0;margin-top: 0;background: transparent;outline: none;padding-left: 5px;
+#tag_input1,#tag_input2,#tag_input3{
+    height:18px;padding-top: 0;margin-top: 0;background: transparent;outline: none;padding-left: 5px;
+    width: auto;
 }
 #tag{
     background: #FFFEEB;margin-left: 51px;border: 1px solid #ccc;border-top: none;padding: 10px;width: 721px;position: relative;
@@ -78,4 +79,7 @@ font-size: 14px;font-weight: normal;height: 26px;
 .post_fabu input{
       width: 150px;background: #4cae4c;color: #fff;font-size: 16px;padding: 10px;border: none;
     border-radius: 10px;margin-left: 400px;cursor: pointer;
+}
+.post_bar{
+     margin: 10px 0;
 }
